@@ -6,15 +6,11 @@
       "use": "@vercel/node"
     },
     {
-      "src": "public/**/*",
+      "src": "public/images/**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/css/(.*)",
-      "dest": "public/css/$1"
-    },
     {
       "src": "/images/(.*)",
       "dest": "public/images/$1"
