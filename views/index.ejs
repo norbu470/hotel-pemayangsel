@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Hotel Pemayangsel</title>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-maroon: #8B0000;
+            --warm-orange: #FF8C00;
+            --dark-charcoal: #222222;
+            --light-bg: #f9f9f9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
+            line-height: 1.6; color: var(--dark-charcoal);
+            background-color: var(--light-bg);
+        }
+        header {
+            background-color: var(--dark-charcoal);
+            border-bottom: 4px solid var(--warm-orange);
+            padding: 1rem 2rem;
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo a {
+            color: white; font-size: 1.6rem; font-weight: bold; text-decoration: none;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        nav .logo span { color: var(--warm-orange); }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a {
+            color: white; text-decoration: none; font-weight: 500; transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--primary-gold); }
+        
+        .hero {
+            background: #333;
+            height: 25vh; color: white;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 1rem;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            height: 450px;
+            margin: 2rem auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            background: #e0e0e0;
+        }
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        .slide.active { opacity: 1; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .slider-btn {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white; border: none;
+            padding: 1rem; cursor: pointer;
+            font-size: 1.2rem; z-index: 10;
+            border-radius: 4px;
+        }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* Story Block Layout Elements */
+        .story-section {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            margin: 3rem auto;
+            max-width: 1000px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .story-content { flex: 2; }
+        .story-image-box { flex: 1; text-align: center; }
+        .owner-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-gold);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .owner-title {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card {
+            background: white; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 3px solid var(--deep-maroon);
+        }
+        .card-content { padding: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--deep-maroon); color: white;
+            padding: 0.6rem 1.5rem; text-decoration: none; border-radius: 4px; transition: 0.3s;
+        }
+        .btn:hover { background: var(--warm-orange); }
+        footer {
+            background: var(--dark-charcoal); color: white; text-align: center;
+            padding: 1.5rem; margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Hotel Pemayangsel Logo" style="height:40px;">
+                    <span>Hotel Pemayangsel★★★</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/dining">Dining & Bar</a></li>
+                <li><a href="/contact">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   
+    <!-- Sliders Container Block -->
+     <section class="hero">
+        <h1>Welcome to Hotel Pemayangsel</h1>
+        <p>A Perfect Blend of Traditional Bhutanese Charm & Modern 3-Star Comfort</p>
+    </section>
+
+   <div class="slider-container">
+    <button class="slider-btn prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+    
+    <!-- Slide 1: Local Image -->
+    <div class="slide active">
+        <img src="/images/slide1.jpg" alt="Bhutan Landscape Heritage View">
+    </div>
+    
+    <!-- Slide 2: Local Image -->
+    <div class="slide">
+        <img src="/images/slide2.jpg" alt="3-Star Deluxe Room Configuration">
+    </div>
+    
+    <!-- Slide 3: Local Image -->
+    <div class="slide">
+        <img src="/images/slide3.jpg" alt="Authentic Culinary Dining Platter">
+    </div>
+
+    <button class="slider-btn next-btn" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+
+    <!-- NEW CONTENT: About Pema Yangsel & Owner Section Row -->
+    <section class="story-section">
+        <div class="story-content">
+            <h2 style="color: var(--deep-maroon); margin-top: 0;">Our Story & Heritage</h2>
+            <p>Proudly serving global travelers for <strong>over 3 successful years</strong>, Hotel Pema Yangsel has become a hallmark of boutique Himalayan hospitality in Paro. Founded on the core principle of <em>"Tha Damtsi"</em> (sacred trust and loyalty), our property beautifully marries old-world Bhutanese architectural integrity with contemporary 3-star luxury configurations.</p>
+            <p>Over the past three years running, we have had the distinct privilege of welcoming families, trekkers, and business professionals from all corners of the globe—providing them with warm floor-heated spaces, authentic organic culinary dishes, and breathtaking views of the surrounding valley ridge lines. When you step inside our gates, you are not merely a transient guest; you become an extension of our heritage family.</p>
+        </div>
+        <div class="story-image-box">
+            <!-- Automatically routes to your local file path target setup -->
+            <img src="/images/owner.jpg" alt="Hotel Owner Portrait" class="owner-img" onerror="this.src='https://icons8.com';">
+            <div class="owner-title">
+                <strong>A Message From The Owner</strong><br>
+                <span>Tashi Delek & Welcome</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Our Premium Offerings</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Comfortable Rooms</h3>
+                    <p>Relax in beautifully decorated spaces featuring traditional accents.</p>
+                    <a href="/rooms" class="btn">View Rooms</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>The Rice Field Restaurant</h3>
+                    <p>Taste the flavors of Bhutan with local cuisine options.</p>
+                    <a href="/dining" class="btn">Explore Menu</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>The Dragon's Nest Bar</h3>
+                    <p>Unwind with local Bhutanese drinks and cocktails.</p>
+                    <a href="/dining" class="btn">See Drinks</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hotel Pemayangsel. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        if (slides.length > 0) {
+            function showSlide(index) {
+                slides[currentSlideIndex].classList.remove('active');
+                currentSlideIndex = (index + slides.length) % slides.length;
+                slides[currentSlideIndex].classList.add('active');
+            }
+            function moveSlide(step) { showSlide(currentSlideIndex + step); }
+            setInterval(() => { moveSlide(1); }, 4000);
+        }
+    </script>
+</body>
+</html>
