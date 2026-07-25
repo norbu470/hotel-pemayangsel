@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Rooms | Hotel Pemayangsel</title>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-maroon: #8B0000;
+            --warm-orange: #FF8C00;
+            --dark-charcoal: #222222;
+            --light-bg: #f9f9f9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
+            line-height: 1.6; color: var(--dark-charcoal);
+            background-color: var(--light-bg);
+        }
+        header {
+            background-color: var(--dark-charcoal);
+            border-bottom: 4px solid var(--warm-orange);
+            padding: 1rem 2rem;
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo a {
+            color: white; font-size: 1.6rem; font-weight: bold; text-decoration: none;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        nav .logo span { color: var(--warm-orange); }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a {
+            color: white; text-decoration: none; font-weight: 500; transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--primary-gold); }
+        .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card {
+            background: white; border-radius: 8px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 3px solid var(--deep-maroon);
+        }
+        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .btn {
+            display: inline-block; background: var(--deep-maroon); color: white;
+            padding: 0.6rem 1.5rem; text-decoration: none; border-radius: 4px; transition: 0.3s;
+        }
+        .btn:hover { background: var(--warm-orange); }
+        footer {
+            background: var(--dark-charcoal); color: white; text-align: center;
+            padding: 1.5rem; margin-top: 5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Hotel Pemayangsel Logo" style="height:40px;">
+                    <span>Hotel Pemayangsel★★★</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/dining">Dining & Bar</a></li>
+                <li><a href="/contact">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 style="text-align: center;">Our 3-Star Accommodations</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem;">All rooms feature high-speed Wi-Fi, tea/coffee makers, and stunning Bhutanese valley views.</p>
+        
+        <div class="grid">
+            <!-- Deluxe Room Card Section -->
+            <div class="card">
+                <!-- UPDATED: Now loading directly from your local images folder -->
+                <img src="/images/deluxe.jpg" alt="Deluxe Twin and Double Room Layout" class="card-img">
+                <div class="card-content">
+                    <h3>Deluxe Twin/Double Room</h3>
+                    <p>Perfect for corporate or leisure travelers. Features traditional hand-carved woodwork layout borders, high-speed Wi-Fi, a premium mattress configuration, and expansive mountain-facing window spaces.</p>
+                    <span style="font-weight: bold; color: #8B0000; display: block; margin: 1rem 0;">Complimentary Breakfast Included</span>
+                    <a href="/contact" class="btn">Book Deluxe</a>
+                </div>
+            </div>
+
+            <!-- Executive Suite Card Section -->
+            <div class="card">
+                <!-- UPDATED: Now loading directly from your local images folder -->
+                <img src="/images/suite.jpg" alt="Executive Suite Traditional Design Layout" class="card-img">
+                <div class="card-content">
+                    <h3>Executive Suite</h3>
+                    <p>Spacious premium suite layout built around classic Himalayan heritage tapestries. Includes an independent seating lounge area, private workspace desk setups, a traditional Bukhari style space heater setup, and upgraded bathroom amenities.</p>
+                    <span style="font-weight: bold; color: #8B0000; display: block; margin: 1rem 0;">Complimentary Welcome Drinks</span>
+                    <a href="/contact" class="btn">Book Suite</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hotel Pemayangsel. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
