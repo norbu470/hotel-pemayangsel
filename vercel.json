@@ -4,9 +4,21 @@
     {
       "src": "app.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
+    {
+      "src": "/css/style.css",
+      "dest": "public/css/style.css"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "public/images/$1"
+    },
     {
       "src": "/(.*)",
       "dest": "app.js"
