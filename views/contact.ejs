@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | Hotel Pemayangsel</title>
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-maroon: #8B0000;
+            --warm-orange: #FF8C00;
+            --dark-charcoal: #222222;
+            --light-bg: #f9f9f9;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0; padding: 0;
+            line-height: 1.6; color: var(--dark-charcoal);
+            background-color: var(--light-bg);
+        }
+        header {
+            background-color: var(--dark-charcoal);
+            border-bottom: 4px solid var(--warm-orange);
+            padding: 1rem 2rem;
+        }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        nav .logo a {
+            color: white; font-size: 1.6rem; font-weight: bold; text-decoration: none;
+            display: flex; align-items: center; gap: 0.8rem;
+        }
+        nav .logo span { color: var(--warm-orange); }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin-left: 2rem; }
+        nav ul li a {
+            color: white; text-decoration: none; font-weight: 500; transition: 0.3s;
+        }
+        nav ul li a:hover { color: var(--primary-gold); }
+        
+        .container { 
+            max-width: 600px; 
+            margin: 4rem auto; 
+            padding: 0 2rem; 
+        }
+        .form-heading { text-align: center; margin-bottom: 0.5rem; }
+        .form-subtext { text-align: center; color: #666; margin-bottom: 2.5rem; }
+        
+        form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1.5rem; 
+            background: white; 
+            padding: 2.5rem; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            border-top: 4px solid var(--deep-maroon); 
+        }
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .date-row { display: flex; gap: 1.5rem; }
+        .date-row .form-group { flex: 1; }
+        label { font-weight: 600; font-size: 0.95rem; color: #333; }
+        input, select { 
+            width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; box-sizing: border-box;
+        }
+        
+        .btn {
+            display: block; width: 100%; background: var(--deep-maroon); color: white; padding: 0.9rem; 
+            border-radius: 4px; font-size: 1.1rem; font-weight: bold; border: none; cursor: pointer; transition: 0.3s; margin-top: 1rem;
+        }
+        .btn:hover { background: var(--warm-orange); }
+        footer { background: var(--dark-charcoal); color: white; text-align: center; padding: 1.5rem; margin-top: 6rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="Hotel Pemayangsel Logo" style="height:40px;">
+                    <span>Hotel Pemayangsel★★★</span>
+                </a>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/rooms">Rooms</a></li>
+                <li><a href="/dining">Dining & Bar</a></li>
+                <li><a href="/contact">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="form-heading">Reservation Inquiries</h1>
+        <p class="form-subtext">Please supply your itinerary details below, and our desk agents will contact you to finalize room blocks within 24 hours.</p>
+        
+        <!-- CONNECTED: action and method point directly to the app.js handler -->
+        <form action="/submit-booking" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <!-- FIXED: added name="name" -->
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <!-- FIXED: added name="email" -->
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+            
+            <div class="date-row">
+                <div class="form-group">
+                    <label for="checkin">Check-In</label>
+                    <!-- FIXED: added name="checkin" -->
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Check-Out</label>
+                    <!-- FIXED: added name="checkout" -->
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="room">Room Selection</label>
+                <!-- FIXED: added name="room" -->
+                <select id="room" name="room">
+                    <option value="Deluxe Twin/Double Room">Deluxe Twin/Double Room</option>
+                    <option value="Executive Suite">Executive Suite</option>
+                </select>
+            </div>
+            
+            <!-- FIXED: type="submit" initiates the form dispatch pipeline -->
+            <button type="submit" class="btn">Submit Booking Request</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Hotel Pemayangsel. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
