@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard Control Console</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f4f6f9; color: #333; }
+        nav { background: #222; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #FF8C00; }
+        nav a { color: white; text-decoration: none; font-weight: bold; background: #8B0000; padding: 0.4rem 1rem; border-radius: 4px; }
+        .wrapper { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
+        .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .stat-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border-left: 5px solid #D4AF37; }
+        .stat-card h3 { margin: 0 0 0.5rem 0; color: #666; font-size: 1rem; text-transform: uppercase; }
+        .stat-card p { margin: 0; font-size: 2.5rem; font-weight: bold; color: #222; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; }
+        th { background: #8B0000; color: white; }
+        tr:hover { background: #f9f9f9; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Hotel Pemayangsel Admin Management Panel</h2>
+        <a href="/admin/logout">Logout</a>
+    </nav>
+
+    <div class="wrapper">
+        <div class="stats-row">
+            <!-- PAGE VIEW METRIC DISPLAY BOX -->
+            <div class="stat-card">
+                <h3>Total Page Traffic Views</h3>
+                <p><%= views %></p>
+            </div>
+            <!-- RESERVATION INQUIRY METRIC DISPLAY BOX -->
+            <div class="stat-card" style="border-left-color: #8B0000;">
+                <h3>Total Active Booking Inquiries</h3>
+                <p><%= inquiries.length %></p>
+            </div>
+        </div>
+
+        <h2>Incoming Room Reservation Requests Logs</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Email Address</th>
+                    <th>Check-In</th>
+                    <th>Check-Out</th>
+                    <th>Room Configuration</th>
+                    <th>Date Received</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(inquiries.length === 0) { %>
+                    <tr><td colspan="6" style="text-align: center; color: #999;">No reservation requests logs logged yet.</td></tr>
+                <% } else { %>
+                    <% inquiries.forEach(item => { %>
+                        <tr>
+                            <td><strong><%= item.name %></strong></td>
+                            <td><%= item.email %></td>
+                            <td><%= item.checkin %></td>
+                            <td><%= item.checkout %></td>
+                            <td><%= item.room %></td>
+                            <td style="color:#666; font-size:0.9rem;"><%= item.dateSubmitted %></td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
